@@ -64,18 +64,6 @@ def copy_and_rename_files(fileName, newName, pathName=".", toLog=True):
         print(fileName, "copied as", newName)
 
 
-def ftp_makedirs_cwd(ftp, path, first_call=True):
-    """设置“FTP”中给出的FTP连接的当前目录参数(如ftplib)。)，不存在创建目录。
-    """
-    try:
-        ftp.cwd(path)  # 切换到对应目录
-    except:
-        ftp_makedirs_cwd(ftp, dirname(path), False)  # 新建目录
-        ftp.mkd(path)
-        if first_call:
-            ftp.cwd(path)
-
-
 def sdfs_receive_file_content(s, conn_socket, filepath, sdfsfilename):
     with open(sdfsfilename, "wb") as f:
         while True:
@@ -410,7 +398,7 @@ class Server:
                                         line = line.strip()
                                         file_data.append(line)
                                         line_num = line_num + 1
-                                # 将data内容写入到生成的txt文件中，注意编码问题
+                               
                                 f = open(sdfs_file_getversions_name, 'w+', encoding='utf-8')
                                 for i, p in enumerate(file_data):
                                     # print(i, p)
