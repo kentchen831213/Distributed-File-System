@@ -22,7 +22,7 @@ import shutil
 
 import linecache
 
-USERNAME = "px6"
+USERNAME = "ycc5"
 PASSWORD = ""
 HOST = socket.gethostname()
 IP = socket.gethostbyname(HOST)
